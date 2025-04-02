@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Button, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faOwl } from '@fortawesome/free-solid-svg-icons';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
 
 const ExamHeader = ({
@@ -16,7 +16,7 @@ const ExamHeader = ({
       {/* Title */}
       <Col xs={12} md={6} className="d-flex align-items-center mb-3 mb-md-0">
         <div className="exam-title">
-          <FontAwesomeIcon icon={faOwl} className="me-2" />
+          <FontAwesomeIcon icon={faGraduationCap} className="me-2" />
           <h1>Owly</h1>
         </div>
       </Col>
