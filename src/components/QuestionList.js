@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Row, Col, Badge, Pagination } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Question from './Question';
 
 const QuestionList = ({
@@ -82,6 +82,19 @@ const QuestionList = ({
     return <Pagination size="sm" className="mt-3 justify-content-center">{pageItems}</Pagination>;
   };
 
+  // Navigation handlers
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      goToQuestion(currentQuestionIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      goToQuestion(currentQuestionIndex + 1);
+    }
+  };
+
   return (
     <div className="question-list-container">
       {/* Exam Progress Statistics */}
@@ -113,6 +126,9 @@ const QuestionList = ({
       {/* Pagination for exam mode */}
       {isExamMode && renderPagination()}
       
+      {/* Practice mode pagination for submitted questions */}
+      {!isExamMode && questionsSubmitted && questions.length > 1 && renderPagination()}
+      
       {/* Questions */}
       {questionsToShow.map((question, idx) => {
         const questionIndex = isExamMode 
@@ -134,6 +150,25 @@ const QuestionList = ({
       
       {/* Navigation and Submit Buttons */}
       <div className="navigation-controls mt-4 d-flex justify-content-center flex-wrap gap-2">
+        {/* Navigation buttons for practice mode after submitting answers */}
+        {questionsSubmitted && !isExamMode && (
+          <>
+            {currentQuestionIndex > 0 && (
+              <Button variant="outline-primary" onClick={handlePrevious} className="me-2">
+                <FontAwesomeIcon icon={faArrowLeft} className="me-2" />
+                Previous
+              </Button>
+            )}
+            {currentQuestionIndex < questions.length - 1 && (
+              <Button variant="primary" onClick={handleNext} className="ms-2">
+                Next
+                <FontAwesomeIcon icon={faArrowRight} className="ms-2" />
+              </Button>
+            )}
+          </>
+        )}
+        
+        {/* Next button before submitting answers */}
         {!isExamMode && !questionsSubmitted && currentQuestionIndex < questions.length - 1 && (
           <Button
             variant="primary"
@@ -144,8 +179,9 @@ const QuestionList = ({
           </Button>
         )}
           
+        {/* Submit button before submitting answers */}
         {(!isExamMode && currentQuestionIndex === questions.length - 1 && !questionsSubmitted) || 
-         (isExamMode && !questionsSubmitted) ? (
+          (isExamMode && !questionsSubmitted) ? (
           <Button
             variant="success"
             onClick={handleSubmit}
