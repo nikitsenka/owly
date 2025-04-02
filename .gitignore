@@ -1,0 +1,16 @@
+# Ignore all node_modules
+**/node_modules/
+
+# Ignore .gradle
+**/.gradle/
+
+# Ignore build directories
+**/build/
+
+# Ignore IDE files
+.idea/
+*.iml
+
+# Misc
+.DS_Store
+*.log
