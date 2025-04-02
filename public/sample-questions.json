@@ -1,0 +1,122 @@
+[
+  {
+    "id": "q1",
+    "text": "What is the primary purpose of the React virtual DOM?",
+    "options": [
+      {
+        "id": "a",
+        "text": "To increase React's rendering speed by batching DOM updates"
+      },
+      {
+        "id": "b",
+        "text": "To provide a simpler API for developers"
+      },
+      {
+        "id": "c",
+        "text": "To increase memory efficiency in React applications"
+      },
+      {
+        "id": "d",
+        "text": "To allow React components to avoid using the actual DOM"
+      }
+    ],
+    "correctOption": "a",
+    "explanation": "The React virtual DOM is a lightweight in-memory representation of the actual DOM. React updates the virtual DOM first and then compares it to the previous version. It then makes only the minimum number of actual DOM changes required, which increases performance."
+  },
+  {
+    "id": "q2",
+    "text": "Which hook would you use to run code only once when a component mounts?",
+    "options": [
+      {
+        "id": "a",
+        "text": "useState(with a function)"
+      },
+      {
+        "id": "b",
+        "text": "useEffect() with an empty dependency array["
+      },
+      {
+        "id": "c",
+        "text": "useMemo() with an empty dependency array"
+      },
+      {
+        "id": "d",
+        "text": "useLayoutEffect()"
+      }
+    ],
+    "correctOption": "b",
+    "explanation": "useEffect() with an empty dependency array runs only once after the initial render. This is equivalent to componentDidMount in class components."
+  },
+  {
+    "id": "q3",
+    "text": "What is the purpose of React Context API?",
+    "options": [
+      {
+        "id": "a",
+        "text": "To replace Redux for all state management"
+      },
+      {
+        "id": "b",
+        "text": "To help with component styling"
+      },
+      {
+        "id": "c",
+        "text": "To solve prop-drilling and provide a way to share data between components"
+      },
+      {
+        "id": "d",
+        "text": "To boost performance by automatically memoizing components"
+      }
+    ],
+    "correctOption": "c",
+    "explanation": "React Context API allows you to share data across your component tree without having to pass props down through multiple layers (prop drilling). It is designed to share data that can be considered global for tree of React components."
+  },
+  {
+    "id": "q4",
+    "text": "Which of these is NOT a ways to create a React component?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Functional components"
+      },
+      {
+        "id": "b",
+        "text": "Class components"
+      },
+      {
+        "id": "c",
+        "text": "High-order components (HOC)"
+      },
+      {
+        "id": "d",
+        "text": "Static components"
+      }
+    ],
+    "correctOption": "d",
+    "explanation": "There's no such thing as 'static components' in React. The main ways to create components are functional components and class components. High-order components are a pattern that takes a component and returns a new component with added functionality, not a way to create components from scratch."
+  },
+  {
+    "id": "q5",
+    "text": "What is the correct way to update the state in React when the new state depends on the previous state?",
+    "options": [
+      {
+        "id": "a",
+        "text": "setCount(count + 1)"
+      },
+      {
+        "id": "b",
+        "text": "setCount(prevCount => prevCount + 1)"
+      },
+      {
+        "id": "c",
+        "text": "setCount(state.count + 1)"
+      },
+      {
+        "id": "d",
+        "text": "setCount(++count)"
+      }
+    ],
+    "correctOption": "b",
+    "explanation": "When updating state based on the previous state in React, you should use the functional update form by passing a function to the state updater. This guarantees that React will provide you with the correct previous state, even if there are multiple updates in queue."
+  }
+]
